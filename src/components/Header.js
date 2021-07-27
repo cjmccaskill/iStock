@@ -5,7 +5,7 @@ const Header = (props) => {
   return (
     <div className="header">
       <Link to="/home">
-        <div>iStocks</div>
+        <div>i<span>$</span>tocks</div>
       </Link>
       <Link to="/about">
         <div>About</div>

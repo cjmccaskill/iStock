@@ -6,11 +6,11 @@ const Stock = (props) => {
   const url = `https://financialmodelingprep.com/api/v3/quote/${symbol}?apikey=${apiKey}`;
 
   const [stock, setStock] = React.useState(null);
-
+  //   console.log(stock);
   const getStock = async () => {
     const response = await fetch(url);
     const data = await response.json();
-    setStock(data);
+    setStock(data[0]);
   };
 
   React.useEffect(() => {
@@ -19,11 +19,14 @@ const Stock = (props) => {
 
   const loaded = () => {
     return (
-      <div>
+      <div className="stock">
         <h1>
           Name: {stock.name}/{stock.symbol}
         </h1>
-        <h2>Current Price: ${stock.price}</h2>
+        <h2>
+          Current Price: <span>$</span>
+          {stock.price}
+        </h2>
       </div>
     );
   };
